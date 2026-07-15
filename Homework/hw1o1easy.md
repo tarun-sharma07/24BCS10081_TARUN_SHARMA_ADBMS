@@ -129,3 +129,5 @@ WHERE s.product_id IS NULL;
 ## Output Screenshot
 
 <img width="1597" height="820" alt="image" src="https://github.com/user-attachments/assets/68cc5c05-a5b1-4bb2-b1e3-1af75f762470" />
+<img width="1599" height="222" alt="image" src="https://github.com/user-attachments/assets/0f5ebb49-6b50-43f3-b87f-1e9e681a3526" />
+
