@@ -1,0 +1,42 @@
+EXPERIMENT-8
+
+
+CREATE TABLE p_employees (
+    emp_id INT PRIMARY KEY,
+    emp_name VARCHAR(100),
+    salary NUMERIC(10,2)
+);
+
+INSERT INTO p_employees (emp_id, emp_name, salary)
+VALUES
+(101, 'Amit', 50000),
+(102, 'Rahul', 60000),
+(103, 'Priya', 55000);
+
+
+SELECT * FROM p_EMPLOYEEs;
+
+-- procedures
+create or replace procedure update_sal_proc
+(
+in p_empid int,
+out status varchar(20),
+inout p_salary numeric(20,2)
+)
+as $$
+declare 
+curr_sal numeric(20,2);
+begin
+select salary into curr_sal from p_employees where emp_id = p_empid;
+if not found then 
+   raise exception 'Empyoyee not found!';
+end if;
+   p_salary := p_salary+curr_sal;
+   update p_employees set salary = p_salary where emp_id = p_empid;
+   status :='success';
+end;
+
+$$ language plpgsql
+
+
+call update_sal_proc(101,null,5300);
